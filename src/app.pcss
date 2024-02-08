@@ -1,0 +1,66 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	h5 {
+		@apply text-lg leading-tight;
+	}
+}
+
+@layer components {
+	.heading {
+		@apply text-xl leading-tight sm:text-2xl md:text-4xl;
+	}
+	.label {
+		@apply text-sm uppercase tracking-wide;
+	}
+	.btn-icon {
+		@apply rounded-full w-fit p-2 grid focus:ring-2;
+	}
+}
+
+.content {
+	--padding-inline: 1rem;
+	--padding-breakout: 20%;
+	--content-width: calc(65ch + (var(--padding-breakout) * 2));
+
+	display: grid;
+	grid-template-columns:
+		[full-width-start]
+		minmax(var(--padding-inline), 10rem)
+		[breakout-start]
+		minmax(0px, var(--padding-breakout))
+		[content-start]
+		min(100% - (2 * var(--padding-inline)), 65ch)
+		[content-end]
+		minmax(0px, var(--padding-breakout))
+		[breakout-end]
+		minmax(var(--padding-inline), 10rem)
+		[full-width-end];
+}
+
+.content > * {
+	grid-column: content;
+}
+.content > .full-width {
+	grid-column: full-width;
+}
+.content > .breakout {
+	grid-column: breakout;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-weight: bold;
+}
+
+code,
+kbd,
+pre {
+	font-family: 'Ubuntu Mono', monospace;
+}
