@@ -1,5 +1,5 @@
-import { createBucketClient } from '@cosmicjs/sdk';
-import { SECRET_KEY_BUCKET, SECRET_KEY_READ } from '$env/static/private';
+import { createBucketClient } from "@cosmicjs/sdk";
+import { SECRET_KEY_BUCKET, SECRET_KEY_READ } from "$env/static/private";
 
 const cosmic = createBucketClient({
 	bucketSlug: SECRET_KEY_BUCKET,
@@ -23,11 +23,10 @@ const cosmic = createBucketClient({
 export async function getColletion(type) {
 	const data = await cosmic.objects
 		.find({ type })
-		.props('slug,title,metadata,published_at,modified_at')
+		.props("slug,title,metadata,published_at,modified_at")
 		.depth(1);
 	return data.objects;
 }
-
 
 /**
 /**
@@ -49,13 +48,15 @@ export async function getColletionByCategory(type, categories) {
 	const data = await cosmic.objects
 		.find({
 			type,
-			"$and": [{
-				"metadata.categories": {
-					"$in": categories
+			$and: [
+				{
+					"metadata.categories": {
+						$in: categories
+					}
 				}
-			}]
+			]
 		})
-		.props('slug,title,metadata,published_at,modified_at')
+		.props("slug,title,metadata,published_at,modified_at")
 		.depth(1);
 	return data.objects;
 }

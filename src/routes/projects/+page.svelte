@@ -1,13 +1,10 @@
-<script>
-	import { Card, Wrap } from '$lib/index';
+<section class="space-y-4">
 
-	export let data;
-</script>
-
-<Wrap title="Projects">
-	<Card let:Child>
-		<Child.Post route="/projects" collection={data.projects}
-			class="mt-4"
-		/>
-	</Card>
-</Wrap>
+  <h1 class="heading">This page is currently under construction</h1>
+  
+  <p class="label">TODO</p>
+  <pre>
+    1. Add projects
+    2. Add shallow routing
+  </pre>
+</section>

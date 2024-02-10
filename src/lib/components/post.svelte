@@ -1,5 +1,5 @@
 <script>
-	import { cn, fdate } from '$lib/utils';
+	import { cn, fdate } from "$lib/utils";
 
 	/**
 	 * @type {Array<{
@@ -19,13 +19,13 @@
 	export let listClass = "";
 	export let textClass = "";
 	let className = "";
-	export {className as class}
-	
+	export { className as class };
+
 	/** @type {string} */
 	export let route;
 </script>
 
-<ul class={cn(className)}>
+<ul class="space-y-12 {cn(className)}">
 	{#each collection as data}
 		<li class="group {cn(listClass)}">
 			<a href={`${route}/${data.slug}`} title={data.title} class="space-y-1">
@@ -38,11 +38,16 @@
 						class="ml-auto aspect-[3/2] w-[90%]"
 					/>
 				{/if}
-				<h4 class="heading !-mt-4 group-active:underline mouse:group-hover:underline {cn(headingClass)}"
+				<h4
+					class="heading !-mt-4 group-active:underline mouse:group-hover:underline {cn(
+						headingClass
+					)}"
 				>
 					{data.title}
 				</h4>
-				<time class="!text-sm" datetime={fdate(data.published_at)}>{fdate(data.published_at)} </time>
+				<time class="!text-sm" datetime={fdate(data.published_at)}
+					>{fdate(data.published_at)}
+				</time>
 				{#if !nodesc}
 					<p class="opacity-80 {cn(textClass)}">{data.metadata.description}</p>
 				{/if}
@@ -50,15 +55,3 @@
 		</li>
 	{/each}
 </ul>
-
-<style>
-	ul > li + li::before {
-		content: '';
-		display: block;
-		width: var(--dash-w, 80%);
-		height: 1px;
-		background-color: var(--dash-color, rgb(255 255 255 / 0.5));
-		margin-block: 1rem 2rem;
-		margin-inline: var(--dash-mx, auto 0);
-	}
-</style>

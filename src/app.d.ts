@@ -10,7 +10,7 @@ declare global {
 	}
 }
 
-declare module 'markdown-it-sanitizer' {
+declare module "markdown-it-sanitizer" {
 	any;
 }
 

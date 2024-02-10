@@ -1,33 +1,41 @@
 <script>
-	import { page } from '$app/stores';
-	import { cn } from '$lib/utils';
+	import { page } from "$app/stores";
+	import List from "$lib/components/list.svelte";
+	import Star from "$lib/icons/styled/star.svelte";
+	import { cn } from "$lib/utils";
 
-	let className = '';
-	let title = '';
-	let breakout = false;
-	let classLinks = '';
-  let headerClass = '';
+	/**@type {any[]}*/
+	export let routes;
+	export let title = "";
+	export let background = "";
+	export let foreground = "";
+	export let classLI = "";
+	export let classUL = "";
 
-	const links = ["blogs", "projects"];
-
-	export { className as class, title, breakout, classLinks, headerClass };
+	let className = "";
+	export { className as class };
 </script>
 
-<header class="py-4 {title && 'flex justify-between gap-10'} {breakout && 'breakout'} {headerClass}">
-  {#if title}
-    <h1 class="heading self-end">{title}</h1>
-  {/if}
-  <nav class="shrink-0 text-end {cn(className)}">
-    <ul>
-      <li><h6 class="font-dsiplay text-lg"><a href="/">Rishav Mandal</a></h6></li>
-    </ul>
-    <ul class={classLinks}>
-			{#each links as link}
-				<li>
-					<a class="capitalize {$page.url.pathname == `/${link}` ? 'underline' : ''}" href={`/${link}`}
-					 title="Go to {link}">{link}</a>
-				</li>
-			{/each}
-    </ul>
-  </nav>
+<header class="content {background} {foreground}">
+	<div class="breakout flex justify-between gap-8 py-3">
+		{#if title}
+			<h1 class="heading self-end leading-tight">{title}</h1>
+		{/if}
+
+		<nav class="ml-auto shrink-0 {cn(className)}">
+			<h5 class="font-dsiplay font-normal tracking-wide">
+				<a href="/">Rishav mandal</a>
+			</h5>
+
+			<List
+				items={routes}
+				let:prop={route}
+				{classUL}
+				classLI="leading-snug capitalize flex justify-end items-center gap-1 {cn(classLI)}"
+			>
+				{#if $page.data.url == route.href}<Star width="10" />{/if}
+				<a href={route.href}>{route.name}</a>
+			</List>
+		</nav>
+	</div>
 </header>

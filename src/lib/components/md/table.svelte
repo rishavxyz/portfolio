@@ -1,3 +1,3 @@
 <div class="overflow-x-scroll">
-  <table><slot /></table>
+	<table><slot /></table>
 </div>

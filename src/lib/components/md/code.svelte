@@ -1,17 +1,17 @@
 <script>
-	import Clipboard from '$lib/icons/clipboard.svelte';
-	import hljs from 'highlight.js';
-	import 'highlight.js/styles/base16/google-light.min.css';
+	import Clipboard from "$lib/icons/clipboard.svelte";
+	import hljs from "highlight.js";
+	import "highlight.js/styles/base16/google-light.min.css";
 
-	import { Marked } from 'marked';
-	import { markedHighlight } from 'marked-highlight';
-	import { copy } from 'svelte-copy';
+	import { Marked } from "marked";
+	import { markedHighlight } from "marked-highlight";
+	import { copy } from "svelte-copy";
 
 	const marked = new Marked(
 		markedHighlight({
-			langPrefix: 'hljs language-',
+			langPrefix: "hljs language-",
 			highlight(code, lang) {
-				const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+				const language = hljs.getLanguage(lang) ? lang : "plaintext";
 				return hljs.highlight(code, { language }).value;
 			}
 		})
@@ -19,11 +19,11 @@
 	marked.use({
 		renderer: {
 			code: (code, lang) =>
-				`<pre class="rounded-none rounded-b m-0 p-4 bg-neutral-100">`
-					+ `<code class="!px-0 !bg-inherit hljs language-${lang}">`
-						+ `${code}`
-					+ `</code>`
-			+ `</pre>`
+				`<pre class="rounded-none rounded-b m-0 p-4 bg-neutral-100">` +
+				`<code class="!px-0 !bg-inherit hljs language-${lang}">` +
+				`${code}` +
+				`</code>` +
+				`</pre>`
 		}
 	});
 	const renderedCode = marked.parse($$props.raw);
@@ -44,7 +44,7 @@
 				copied = true;
 				setTimeout(() => (copied = false), 5000);
 			}}
-			on:svelte-copy:error={() => alert('Could not copy to clipboard')}
+			on:svelte-copy:error={() => alert("Could not copy to clipboard")}
 			><Clipboard {copied} />
 		</button>
 	</div>
