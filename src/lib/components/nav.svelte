@@ -17,14 +17,18 @@
 </script>
 
 <header class="content {background} {foreground}">
-	<div class="breakout flex justify-between gap-8 py-3">
+	<div class="breakout flex justify-between gap-8 pt-4">
 		{#if title}
 			<h1 class="heading lg:max-w-[35ch] self-end leading-tight">{title}</h1>
 		{/if}
 
 		<nav class="ml-auto shrink-0 {cn(className)}">
 			<h5 class="font-dsiplay font-normal tracking-wide">
-				<a href="/">Rishav mandal</a>
+				<a href="/">
+					{#each "RishavMandal".split("") as char, index}
+						<span style="--delay:{++index}" class="inline-block">{@html char == "v" ? char + "&nbsp;" : char}</span>
+					{/each}
+				</a>
 			</h5>
 
 			<List
@@ -39,3 +43,20 @@
 		</nav>
 	</div>
 </header>
+
+<style>
+	nav a:hover > span[style] {
+		animation: lift-up 750ms;
+		animation-delay: calc(var(--delay) * 75ms);
+		/* animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275); */
+		animation-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+	}
+	@keyframes lift-up {
+		from, to {
+			transform: translateY(0rem);
+		}
+		50% {
+			transform: translateY(-2px);
+		}
+	}
+</style>

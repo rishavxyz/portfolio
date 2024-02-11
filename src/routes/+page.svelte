@@ -3,13 +3,7 @@
 	import Github from "$lib/icons/github.svelte";
 	import Star from "$lib/icons/styled/spiked-star.svelte";
 	import List from "$lib/components/list.svelte";
-
 	export let data;
-
-	const myFancyName = "Rishav"
-		.split("")
-		.map((c, i) => (i % 4 ? `<span class="relative z-10">${c}</span>` : c))
-		.join("");
 </script>
 
 <section class="breakout">
@@ -24,9 +18,7 @@
 		</div>
 		<p class="-mt-3 gap-3 text-4xl font-black leading-none tracking-tight lg:flex">
 			<Star class="w-24 shrink-0 lg:w-40" />
-			<span class="shrink">
-				{data.seo.description}
-			</span>
+			<span class="shrink">{data.seo.description}</span>
 		</p>
 	</div>
 </section>

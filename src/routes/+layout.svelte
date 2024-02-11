@@ -8,8 +8,10 @@
 
 	import { Nav, Footer } from "$lib";
 	import { page } from "$app/stores";
-	import { fly } from "svelte/transition";
+	import { fly, slide } from "svelte/transition";
 	import { cubicIn, cubicOut } from "svelte/easing";
+	import { onMount } from "svelte";
+	import { read } from "$app/server";
 
 	export let data;
 
@@ -21,6 +23,9 @@
 
 	$: background = $page.data.nav.background;
 	$: foreground = $page.data.nav.foreground;
+
+	let ready = false;
+	onMount(()=> (ready=true))
 </script>
 
 <svelte:head>
@@ -37,6 +42,11 @@
 	<meta name="author" content={data.seo.author} />
 </svelte:head>
 
+{#if !ready}
+	<div class="grid place-items-center h-screen fixed bg-on-surface z-50 inset-0" out:slide={{delay: 800, duration: 800}}>
+		<p class="label text-lg text-surface" out:fly={{delay: 500}}>Rishav Mandal</p>
+	</div>
+{/if}	
 {#key data.url}
 	<div
 		class="min-h-screen {background} {foreground}"

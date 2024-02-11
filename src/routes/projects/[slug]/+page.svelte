@@ -28,7 +28,7 @@
         [&>li+li]:before:content-['/_']"
 		>
 			<Link
-				href="#"
+				href="/projects/tag/{category.slug}"
 				class="label font-bold"
 				text={category.title}
 				props={{ style: `color: ${category.metadata.color};` }}

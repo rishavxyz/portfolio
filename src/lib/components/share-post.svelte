@@ -96,7 +96,7 @@
 
 				await navigator.share(data);
 			} catch {
-				alert("There's a problem while sharing");
+				return;
 			}
 		}}
 	>

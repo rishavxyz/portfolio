@@ -22,7 +22,7 @@
 			</p>
 		</div>
 	</div>
-	<UniqueDesign class="w-full md:ml-auto md:w-[200px]" />
+	<UniqueDesign class="ml-auto w-[200px] h-[200px]" />
 	<div>
 		<h2 class="heading">Beside that...</h2>
 		<p>My interests are also in playing Piano and playing a game called Cat Bird.</p>
