@@ -7,7 +7,6 @@
 	import { cubicOut } from "svelte/easing";
 
 	import Slug from "./[slug]/+page.svelte";
-	import Github from "$lib/icons/github.svelte";
 
 	export let data;
 
@@ -129,8 +128,8 @@
 				in:fade={{ delay: 762, easing: cubicOut }}
 				out:fade={{ duration: 100, easing: cubicOut }}
 			>
-				<div class="flex items-start justify-end gap-4">
-					<List items={links} let:prop={{ url }} classUL="mb-3 ml-4">
+				<div class="breakout mr-0.5 flex items-center justify-end gap-4">
+					<List items={links} let:prop={{ url }}>
 						{#if url?.includes("github.com")}
 							<Link isblank href={url} class="label text-surface/80">Github</Link>
 						{/if}

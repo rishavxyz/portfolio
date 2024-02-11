@@ -13,7 +13,6 @@
 		headingClass="text-lg"
 		listClass="w-[90%]"
 		textClass="opacity-90"
-		--dash-color="black"
 	/>
 	<MagicText class="text-red-600">My blogs</MagicText>
 </Card>
@@ -29,7 +28,6 @@
 				collection={favs.articles}
 				headingClass="text-lg"
 				textClass="opacity-90"
-				--dash-color="rgb(245 252 255 / 0.5)"
 			/>
 			<MagicText class="-top-4 right-4 rotate-[270deg] tracking-normal text-rose-800"
 				>&hearts;</MagicText
