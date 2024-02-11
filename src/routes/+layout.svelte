@@ -25,7 +25,13 @@
 
 <svelte:head>
 	<title>{$page.data.seo.title}</title>
-	<meta http-equiv="Content-Security-Policy" content="script-src 'none'">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="manifest" href="/site.webmanifest">
+
 	<meta name="description" content={$page.data.seo.description} />
 	<meta name="keywords" content="website portfolio developer" />
 	<meta name="author" content={data.seo.author} />
