@@ -4,6 +4,6 @@
 	export { className as class };
 </script>
 
-<h6 class="label mb-4 {className}">
+<p class="label mb-4 {className}">
 	<slot />
-</h6>
+</p>

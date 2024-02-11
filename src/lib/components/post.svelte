@@ -35,7 +35,6 @@
 						alt={`Cover image of ${data.title}`}
 						width="480"
 						height="320"
-						loading="lazy"
 						class="ml-auto aspect-[3/2] w-[90%]"
 					/>
 				{/if}

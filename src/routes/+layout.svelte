@@ -25,6 +25,7 @@
 
 <svelte:head>
 	<title>{$page.data.seo.title}</title>
+	<meta http-equiv="Content-Security-Policy" content="script-src 'none'">
 	<meta name="description" content={$page.data.seo.description} />
 	<meta name="keywords" content="website portfolio developer" />
 	<meta name="author" content={data.seo.author} />

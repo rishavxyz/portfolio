@@ -22,12 +22,12 @@
 			</h1>
 			<Star class="-ml-12 h-[100px] w-[100px]" />
 		</div>
-		<h3 class="-mt-3 gap-3 text-4xl font-black leading-none tracking-tight lg:flex">
+		<p class="-mt-3 gap-3 text-4xl font-black leading-none tracking-tight lg:flex">
 			<Star class="w-24 shrink-0 lg:w-40" />
 			<span class="shrink">
 				{data.seo.description}
 			</span>
-		</h3>
+		</p>
 	</div>
 </section>
 <!-- articles -->
@@ -80,7 +80,8 @@
 					</a>
 					<List items={links} let:prop={{ url }}>
 						{#if url?.includes("github.com")}
-							<Link isblank href={url} class="text-neutral-400">
+							<Link isblank href={url} class="text-neutral-400" 
+							props={{title: "GitHub"}}>
 								<Github class="h-6 w-6" />
 							</Link>
 						{/if}
