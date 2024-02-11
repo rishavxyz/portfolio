@@ -2,7 +2,7 @@
 	import { cn } from "$lib/utils";
 
 	/**
-	 * @type {any[]}
+	 * @type {any[]|{length: number}}
 	 */
 	export let items;
 	export let classUL = "";

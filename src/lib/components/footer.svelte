@@ -1,5 +1,5 @@
 <script>
-	import { Link } from "$lib";
+	import { ContactMe, Link } from "$lib";
 	import Nav from "./nav.svelte";
 
 	/**@type {any[]}*/
@@ -7,6 +7,9 @@
 </script>
 
 <footer class="content bg-surface pb-6 pt-3 text-on-surface">
+	<!-- contact me -->
+	<ContactMe />
+
 	<Nav
 		class="mx-auto text-center"
 		{routes}
@@ -27,7 +30,7 @@
 			class="font-[520] text-fuchsia-100 underline"
 			href="https://tailwindcss.com/"
 			text="TailwindCSS"
-		/>&comma; heavily used with <span class="font-code">`cn&lpar;&rpar;`</span> utility.
+		/>&comma; with the greatest <span class="font-code">`cn&lpar;&rpar;`</span> utility.
 		<Link
 			isblank
 			class="font-[520] text-fuchsia-100 underline"

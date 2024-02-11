@@ -14,10 +14,13 @@ export async function load() {
 
 	if (!articles) error(500, "Cannot get data");
 
-	return { articles, favs: getFavs() ,
+	return {
+		articles,
+		favs: getFavs(),
 		seo: seoConfig({
 			title: "Blogs",
-			description: "Articles on web development, Linux and JavaScript, tips and tricks, small projects."
+			description:
+				"Articles on web development, Linux and JavaScript, tips and tricks, small projects."
 		})
 	};
 }

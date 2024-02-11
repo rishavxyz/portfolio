@@ -83,10 +83,9 @@
 	}
 </script>
 
-<svelte:window on:keyup={closeOnEscape} />
-
 <div class="relative space-y-2">
 	<button
+		on:keyup={closeOnEscape}
 		class="btn-icon bg-neutral-200 ring-neutral-500"
 		title="Share this post"
 		on:click|stopPropagation={async () => {

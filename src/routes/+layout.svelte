@@ -1,7 +1,10 @@
 <script>
 	import "../app.pcss";
-	import "@fontsource/bebas-neue";
+
 	import "@fontsource-variable/arimo";
+	import "@fontsource-variable/noto-serif";
+	import "@fontsource/bebas-neue";
+	import "@fontsource/ubuntu-mono";
 
 	import { Nav, Footer } from "$lib";
 	import { page } from "$app/stores";
