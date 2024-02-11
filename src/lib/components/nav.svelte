@@ -19,7 +19,7 @@
 <header class="content {background} {foreground}">
 	<div class="breakout flex justify-between gap-8 py-3">
 		{#if title}
-			<h1 class="heading self-end leading-tight">{title}</h1>
+			<h1 class="heading lg:max-w-[35ch] self-end leading-tight">{title}</h1>
 		{/if}
 
 		<nav class="ml-auto shrink-0 {cn(className)}">

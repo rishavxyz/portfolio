@@ -57,9 +57,9 @@
 	</svg>
 </div>
 
-<div class="absolute bottom-6 right-6">
+<div class="absolute top-[500px] right-6 touch-none select-none">
 	<svg
-		class="brightness-75 lg:brightness-95"
+		class="brightness-75 lg:brightness-95 touch-none"
 		width="200"
 		height="200"
 		viewBox="0 0 200 200"
@@ -129,7 +129,7 @@
 				out:fade={{ duration: 100, easing: cubicOut }}
 			>
 				<div class="breakout mr-0.5 flex items-center justify-end gap-4">
-					<List items={links} let:prop={{ url }}>
+					<List items={links} let:prop={{ url }} classLI="flex gap-4">
 						{#if url?.includes("github.com")}
 							<Link isblank href={url} class="label text-surface/80">Github</Link>
 						{/if}

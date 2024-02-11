@@ -60,7 +60,7 @@
 						[&>li+li]:before:content-['/_']"
 						>
 							<Link
-								href="/"
+								href="#"
 								class="label text-xs font-bold"
 								text={category.title}
 								props={{ style: `color: ${category.metadata.color};` }}
