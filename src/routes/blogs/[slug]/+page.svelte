@@ -53,12 +53,12 @@
 	<div class="mt-3 grid">
 		<p
 			class="text-2xl font-light leading-tight lg:first-letter:text-6xl lg:first-letter:font-[530]"
-			transition:fly|local={{delay: 1500, duration: 800, y: -100}}
+			in:fly|local={{delay: 1500, duration: 800, y: -100}}
 		>
 			{article.metadata.description}
 		</p>
 		<div class="mt-4"
-			transition:fly|local={{delay: 1550, duration: 800, y: 100}}
+			in:fly|local={{delay: 1550, duration: 800, y: 100}}
 		>
 			<div class="flex items-center gap-4">
 				<time class="shrink-0" datetime={fdate(article.published_at)}

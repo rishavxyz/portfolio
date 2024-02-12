@@ -8,7 +8,7 @@
 
 	import { Nav, Footer } from "$lib";
 	import { page } from "$app/stores";
-	import { fly, slide } from "svelte/transition";
+	import { fly } from "svelte/transition";
 	import { cubicIn, cubicOut } from "svelte/easing";
 	import { onMount } from "svelte";
 
@@ -40,12 +40,6 @@
 	<meta name="keywords" content="website portfolio developer" />
 	<meta name="author" content={data.seo.author} />
 </svelte:head>
-
-{#if !ready && !data.url?.match(/blogs\/.*/i)}
-	<div class="grid place-items-center h-screen fixed bg-on-surface z-50 inset-0" out:slide={{delay: 800, duration: 800}}>
-		<p class="label text-lg text-surface" out:fly={{delay: 500}}>Rishav Mandal</p>
-	</div>
-{/if}	
 
 {#key data.url}
 	<div
