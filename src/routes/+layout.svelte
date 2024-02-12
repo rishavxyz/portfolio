@@ -3,8 +3,8 @@
 
 	import "@fontsource-variable/arimo";
 	import "@fontsource-variable/noto-serif";
-	import "@fontsource/bebas-neue";
-	import "@fontsource/ubuntu-mono";
+	import "@fontsource/bebas-neue/400.css";
+	import "@fontsource/ubuntu-mono/400.css";
 
 	import { Nav, Footer } from "$lib";
 	import { page } from "$app/stores";
@@ -44,7 +44,7 @@
 {#key data.url}
 	<div
 		class="min-h-screen {background} {foreground}"
-		in:fly={{ duration: 800, y: 200, delay: 1000, easing: cubicOut }}
+		in:fly={{ duration: 800, y: 200, delay: 900, easing: cubicOut }}
 		out:fly={{ duration: 800, y: -400, easing: cubicIn }}
 	>
 		<Nav title={$page.data.nav.title} {routes} />

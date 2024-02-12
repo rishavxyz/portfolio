@@ -11,22 +11,22 @@
 
 {#await data.lazyLoad}
 <!-- articles -->
-	<div class="grid place-items-center h-screen fixed bg-on-surface z-50 inset-0" out:slide={{delay: 0, duration: 800}}>
+	<div class="grid place-items-center h-screen fixed bg-on-surface z-50 inset-0" out:slide={{delay: 800, duration: 800}}>
 		<p class="label text-lg text-surface" out:fly={{delay: 500}}>Rishav Mandal</p>
 	</div>
 {:then data}
 <section>
 		<div class="flex">
-			<h1 class="font-dsiplay text-8xl font-black" in:fly={{delay: 650, y: -20, duration: 650}}>
+			<h1 class="font-dsiplay text-8xl font-black" in:fly={{delay: 1200, y: -20, duration: 650}}>
 				Rishav
 				<br />
-				<span class="-mt-6 ml-10 block" in:fly={{delay: 750, y:20, duration: 650}}>Mandal</span>
+				<span class="-mt-6 ml-10 block" in:fly={{delay: 1500, y:20, duration: 650}}>Mandal</span>
 			</h1>
 			<Star class="-ml-12 h-[100px] w-[100px]" />
 		</div>
 		<p class="-mt-3 gap-3 text-4xl font-black leading-none tracking-tight lg:flex">
 			<Star class="w-24 shrink-0 lg:w-40" />
-			<span class="shrink" in:fly={{delay: 650,y:0, x:20, duration: 800}}>{seo.description}</span>
+			<span class="shrink" in:fly={{delay: 1400,y:0, x:20, duration: 800}}>{seo.description}</span>
 		</p>
 </section>
 	<Card let:Child class="mt-6 py-4">
