@@ -1,8 +1,9 @@
 <script>
 	import { page } from "$app/stores";
-	import { Link, SharePost, Render, Card } from "$lib";
+	import { Link, SharePost, Render } from "$lib";
 	import List from "$lib/components/list.svelte";
 	import { fdate } from "$lib/utils";
+	import { fly } from "svelte/transition";
 	/**
 	 * @type {import("./$types").PageServerData}
 	 */
@@ -57,11 +58,14 @@
 	<!-- description -->
 	<div class="mt-3 grid">
 		<p
+			transition:fly|local={{delay: 1500, duration: 800, y: -100}}
 			class="max-w-[35ch] text-2xl font-light leading-tight lg:first-letter:text-6xl lg:first-letter:font-[530]"
 		>
 			{project.metadata.description}
 		</p>
-		<div class="mt-4">
+		<div class="mt-4"
+			transition:fly|local={{delay: 1550, duration: 800, y: 100}}
+		>
 			<div class="flex items-center gap-4">
 				<time class="shrink-0" datetime={fdate(project.published_at)}
 					>{fdate(project.published_at)}
@@ -71,7 +75,9 @@
 				<!-- share this project -->
 				<SharePost class="h-4 w-4" data={{ text: project.title, url: data.url }} />
 			</div>
-			<p>About {data.readingTime} minute{data.readingTime == 1 ? "" : "s"} to read</p>
+			{#await data.readingTime then rt}
+				<p>About {rt} minute{rt == 1 ? "" : "s"} to read</p>
+			{/await}
 		</div>
 	</div>
 </section>

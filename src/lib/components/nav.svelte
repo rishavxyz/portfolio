@@ -3,6 +3,7 @@
 	import List from "$lib/components/list.svelte";
 	import Star from "$lib/icons/styled/star.svelte";
 	import { cn } from "$lib/utils";
+	import { fade } from "svelte/transition";
 
 	/**@type {any[]}*/
 	export let routes;
@@ -19,7 +20,11 @@
 <header class="content {background} {foreground}">
 	<div class="breakout flex justify-between gap-8 pt-4">
 		{#if title}
-			<h1 class="heading lg:max-w-[35ch] self-end leading-tight">{title}</h1>
+			<h1 class="heading lg:max-w-[35ch] self-end leading-tight">
+				{#each title as char, i}
+					<span in:fade|global={{delay: 1500 + 25 * i}}>{char}</span>
+				{/each}
+			</h1>
 		{/if}
 
 		<nav class="ml-auto shrink-0 {cn(className)}">

@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
-import sanitize from "sanitize-html";
 
 /**
  * @param   { string } date   - Raw date or string
@@ -22,11 +21,10 @@ export function cn(...classValue) {
 /**
  * Generate estimated reading time from string
  * @param {string} text String
- * @returns {number} Time in minutes
+ * @returns {Promise<number>} Time in minutes
  */
-export function readingTime(text) {
-	const pureStr = sanitize(text);
-	return Math.round(pureStr.split(" ").length / 250);
+export async function readingTime(text) {
+	return Math.round(text.split(" ").length / 250);
 }
 
 /** Config for better SEO

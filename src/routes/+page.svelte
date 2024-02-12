@@ -3,24 +3,23 @@
 	import Github from "$lib/icons/github.svelte";
 	import Star from "$lib/icons/styled/spiked-star.svelte";
 	import List from "$lib/components/list.svelte";
+	import { fly } from "svelte/transition";
 	export let data;
 </script>
 
-<section class="breakout">
-	<div class="content">
+<section>
 		<div class="flex">
-			<h1 class="font-dsiplay text-8xl font-black">
+			<h1 class="font-dsiplay text-8xl font-black" in:fly={{delay: 1500, y: -20, duration: 800}}>
 				Rishav
 				<br />
-				<span class="-mt-6 ml-10 block">Mandal</span>
+				<span class="-mt-6 ml-10 block" in:fly={{delay: 1750, y:20, duration: 800}}>Mandal</span>
 			</h1>
 			<Star class="-ml-12 h-[100px] w-[100px]" />
 		</div>
 		<p class="-mt-3 gap-3 text-4xl font-black leading-none tracking-tight lg:flex">
 			<Star class="w-24 shrink-0 lg:w-40" />
-			<span class="shrink">{data.seo.description}</span>
+			<span class="shrink" in:fly={{delay: 1700,y:0, x:20, duration: 800}}>{data.seo.description}</span>
 		</p>
-	</div>
 </section>
 <!-- articles -->
 <Card let:Child class="mt-6 py-4">
@@ -35,14 +34,14 @@
 			items={data.projects}
 			let:prop={project}
 			classUL="space-y-10"
-			classLI="flex flex-col-reverse lg:flex-row gap-4"
+			classLI="flex flex-col-reverse lg:flex-row gap-2"
 		>
 			{@const imgSrc = project.metadata.hero_image?.imgix_url}
 			{@const categories = project.metadata.categories}
 			{@const links = project.metadata.links}
 
 			<div class="space-y-4 self-center lg:mx-auto">
-				<header class="space-y-2 lg:w-[50ch]" class:mx-auto={!imgSrc}>
+				<header class="space-y-1 lg:w-[50ch]" class:mx-auto={!imgSrc}>
 					{#if categories}
 						<List
 							items={categories}
@@ -51,12 +50,11 @@
 						flex gap-1 [&>li+li]:before:text-[gray]
 						[&>li+li]:before:content-['/_']"
 						>
-							<Link
-								href="#"
+							<a
+								href="#_"
 								class="label text-xs font-bold"
-								text={category.title}
-								props={{ style: `color: ${category.metadata.color};` }}
-							/>
+								style="color:{category.metadata.color}"
+							>{category.title}</a>
 						</List>
 					{/if}
 					<h5>{project.title}</h5>

@@ -22,6 +22,6 @@ export async function load({ params, url }) {
 			title: project.title,
 			description: project.metadata.description
 		}),
-		readingTime: readingTime(project.metadata.content)
+		readingTime: await readingTime(project.metadata.content)
 	};
 }

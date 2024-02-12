@@ -25,7 +25,7 @@
 	export let route;
 </script>
 
-<ul class="space-y-12 {cn(className)}">
+<ul class="space-y-8 lg:space-y-10 {cn(className)}">
 	{#each collection as data}
 		<li class="group {cn(listClass)}">
 			<a href={`${route}/${data.slug}`} title={data.title} class="space-y-1">
@@ -35,11 +35,11 @@
 						alt={`Cover image of ${data.title}`}
 						width="480"
 						height="320"
-						class="ml-auto aspect-[3/2] w-[90%]"
+						class="mb-3 ml-auto aspect-[3/2]"
 					/>
 				{/if}
 				<h4
-					class="heading !-mt-4 group-active:underline mouse:group-hover:underline {cn(
+					class="heading group-active:underline mouse:group-hover:underline {cn(
 						headingClass
 					)}"
 				>

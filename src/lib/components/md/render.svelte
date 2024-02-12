@@ -5,7 +5,6 @@
 
 	import hljs from "highlight.js";
 	import "highlight.js/styles/base16/google-light.min.css";
-	import sanitize from "sanitize-html";
 
 	let className = "prose prose-lg prose-surface py-6 font-serif prose-code:text-base",
 		/**@type {string}*/
@@ -25,15 +24,16 @@
 	);
 	marked.use({
 		renderer: {
-			code: (code, lang) =>
-				`<pre class="rounded m-0 p-4 bg-neutral-100">` +
-				`<code class="!px-0 !bg-inherit hljs language-${lang}">` +
-				`${code}` +
-				`</code>` +
-				`</pre>`,
+			code: (code, lang) => `
+				<figure class="rounded mt-0 overflow-hidden">
+					<figcaption class="label font-code text-sm m-0 px-6 py-4 bg-neutral-100">${lang}</figcaption>
+					<pre class="bg-neutral-50"><code class="!px-0 !bg-inherit hljs language-${lang}">${code}</code></pre>
+				</figure>
+				`
+			,
 			table: (thead, tbody) =>
 			`<div class="overflow-x-scroll">` +
-			`<table class="my-0"><thead>${thead}</thead>` +
+			`<table class="m-0"><thead>${thead}</thead>` +
 			`<tbody>${tbody}</tbody>` +
 			`</table>`
 		}
@@ -41,5 +41,5 @@
 </script>
 
 <article class={cn(className)} {title}>
-	{@html marked.parse(sanitize(content))}
+	{@html marked.parse(content)}
 </article>

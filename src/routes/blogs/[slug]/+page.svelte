@@ -2,6 +2,7 @@
 	import { Link, SharePost, Render, Card } from "$lib";
 	import List from "$lib/components/list.svelte";
 	import { fdate } from "$lib/utils";
+	import { fly } from "svelte/transition";
 	/**
 	 * @type {import("./$types").PageServerData}
 	 */
@@ -36,13 +37,14 @@
 <!-- image -->
 <section class={hero_image ? "flex flex-col gap-x-6 lg:flex-row" : ""} class:breakout={hero_image}>
 	{#if hero_image}
-		<div class="shrink-0 py-3 lg:w-[60%]">
+		<div class="shrink-0 lg:w-[60%]"
+		>
 			<img
 				src={hero_image.imgix_url}
 				alt={`Cover image of ${article.title}`}
 				width="720"
 				height="480"
-				loading="lazy"
+				loading="eager"
 				class="aspect-[3/2]"
 			/>
 		</div>
@@ -51,10 +53,13 @@
 	<div class="mt-3 grid">
 		<p
 			class="text-2xl font-light leading-tight lg:first-letter:text-6xl lg:first-letter:font-[530]"
+			transition:fly|local={{delay: 1500, duration: 800, y: -100}}
 		>
 			{article.metadata.description}
 		</p>
-		<div class="mt-4">
+		<div class="mt-4"
+			transition:fly|local={{delay: 1550, duration: 800, y: 100}}
+		>
 			<div class="flex items-center gap-4">
 				<time class="shrink-0" datetime={fdate(article.published_at)}
 					>{fdate(article.published_at)}
@@ -64,7 +69,9 @@
 				<!-- share this article -->
 				<SharePost class="h-4 w-4" data={{ text: article.title, url: data.url }} />
 			</div>
-			<p>About {data.readingTime} minute{data.readingTime == 1 ? "" : "s"} to read</p>
+			{#await data.readingTime then rt}
+				<p>About {rt} minute{rt == 1 ? "" : "s"} to read</p>
+			{/await}
 		</div>
 	</div>
 </section>

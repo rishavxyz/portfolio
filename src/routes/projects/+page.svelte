@@ -1,6 +1,6 @@
 <script>
 	import { Link, List } from "$lib";
-	import { fade, slide } from "svelte/transition";
+	import { fade, slide, crossfade } from "svelte/transition";
 	import { fdate } from "$lib/utils";
 	import { page } from "$app/stores";
 	import { goto, preloadData, pushState } from "$app/navigation";
@@ -9,6 +9,8 @@
 	import Slug from "./[slug]/+page.svelte";
 
 	export let data;
+
+	const [send, recieve] = crossfade({})
 
 	/**@param { MouseEvent & {currentTarget: HTMLAnchorElement} } e  */
 	async function getPost(e) {
@@ -145,7 +147,9 @@
 					</button>
 				</div>
 				{#key $page.state.selected.url}
+				<div in:send={{key: $page.state.selected}}>
 					<Slug data={$page.state.selected} />
+				</div>
 				{/key}
 			</div>
 		</div>

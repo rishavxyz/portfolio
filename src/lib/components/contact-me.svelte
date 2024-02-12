@@ -22,7 +22,7 @@
 			<p class="ml-auto flex w-fit flex-col gap-3">
 				<a
 					href={`mailto:${emailAddr}`}
-					class="md text-2xl decoration-on-surface/80 decoration-2 underline-offset-8 hover:underline"
+					class="text-xl font-[550] decoration-on-surface/80 decoration-2 underline-offset-8 hover:underline"
 					>{emailAddr}</a
 				>
 				<button
